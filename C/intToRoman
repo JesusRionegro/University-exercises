@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <string.h>
+
+char intToRoman(int numero){
+     
+     char c[6][10] = {"", "C", "CC", "CCC", "CD", "D"};
+     char x[10][10] = {"", "X", "XX", "XXX", "XL", "L",
+                        "LX", "LXX", "LXXX", "XC"};
+     char i[10][10] = {"", "I", "II", "III", "IV", "V",
+                        "VI", "VII", "VIII", "IX"};
+
+     char *centenas = c[(numero%1000)/100];
+
+     char *decenas =  x[(numero%100)/10];
+
+     char *unidades = i[numero%10];
+
+    char ans[3];
+    strcpy (ans,centenas);
+    strcat (ans,decenas);
+    strcat (ans,unidades);
+    puts (ans);
+
+    return ans;
+}
+
+int main()
+{
+
+    int numero=501;
+    while ( numero > 500 )        
+   {
+    printf ("Elija un número menor o igual a 500: ");
+    scanf("%d", &numero);  
+    printf("El número elegido es %d\n", numero);
+
+   }
+
+    printf("Su representación en romano es: ");
+    intToRoman(numero);
+    return 0;
+}
+
+
+
