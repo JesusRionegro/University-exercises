@@ -2,7 +2,7 @@
 #include <string.h>
 
 char intToRoman(int numero){
-     
+
      char c[6][10] = {"", "C", "CC", "CCC", "CD", "D"};
      char x[10][10] = {"", "X", "XX", "XXX", "XL", "L",
                         "LX", "LXX", "LXXX", "XC"};
@@ -26,20 +26,21 @@ char intToRoman(int numero){
 
 int main()
 {
-
+    int exit=0;
     int numero=501;
-    while ( numero > 500 )        
+    while ( exit==0 )
    {
     printf ("Elija un número menor o igual a 500: ");
-    scanf("%d", &numero);  
+    scanf("%d", &numero);
     printf("El número elegido es %d\n", numero);
 
-   }
-
-    printf("Su representación en romano es: ");
-    intToRoman(numero);
-    return 0;
+   if(numero>0 && numero<500){
+        exit=1;
+        printf("Su representación en romano es: ");
+        intToRoman(numero);
+        return 0;
+    }else{
+        printf("Solo se aceptan numeros positivos entre 0 y 500\n");
+    }
+    }
 }
-
-
-
