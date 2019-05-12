@@ -37,12 +37,12 @@ Stack CreateStack(int MaxElements)
  
 int full()
 {
-    return s->TopOfStack == s->Capacity - 1;
+    return s->TopOfStack == s->Capacity - 1; // Si el valor es igual a la capacidad -1, devuelve true
 }
  
 int empty()
 {
-    return s->TopOfStack == -1;
+    return s->TopOfStack == -1; //Si el valor es igual a -1 devuelve True
 }
  
 void Push(int x)
@@ -106,6 +106,7 @@ void main()
     printf("Tras la inserción de los 4º primeros elementos \n");
     status();
     
+    printf("Borramos 2 elementos \n");
     Pop(); //Eliminamos elemento
     Pop();
     printf("Tras borrar dos elementos \n");
@@ -114,6 +115,14 @@ void main()
     Push(60);
     Push(70);
     Push(80);
-    
+    printf("Mensaje anterior obtenido al tratar de agregar un sexto elemento\n");
+    printf("Ahora, intentamos borrar 6 elementos seguidos \n");
+    Pop(); 
+    Pop();
+    Pop(); 
+    Pop();
+    Pop(); 
+    Pop();
+    printf("El aviso de 'pila vacia' nos avisa de que no podemos seguir eliminando contenido \n");
     return 0;
 }
