@@ -58,7 +58,7 @@ void Pop()
     if(empty())
         printf("Pila vacia\n\n");
     else
-        printf("Valor eliminado=%d\n\n",s->TopOfStack);
+        printf("Valor eliminado=%d\n\n",s->Array[s->TopOfStack]);
         s->TopOfStack--;
 }
  
