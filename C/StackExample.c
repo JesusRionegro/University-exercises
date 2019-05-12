@@ -48,7 +48,7 @@ int empty()
 void Push(int x)
 {
     if(full())
-        printf("Pila llena\n\n");
+        printf("Pila llena, no se permiten más inserciones\n\n");
     else
         s->Array[++s->TopOfStack] = x;
 }
@@ -58,6 +58,7 @@ void Pop()
     if(empty())
         printf("Pila vacia\n\n");
     else
+        printf("Valor eliminado=%d\n\n",s->TopOfStack);
         s->TopOfStack--;
 }
  
@@ -86,7 +87,7 @@ void status()
     {
         printf("Los elementos en la pila son :: ");
         for(i=s->TopOfStack; i >= 0; i--)
-            printf("%d  ",s->Array[i]);
+            printf("\nEn la posición %d=%d,  ",i,s->Array[i]);
         printf("\n\n");
     }
 }
