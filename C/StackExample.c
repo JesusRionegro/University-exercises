@@ -97,15 +97,17 @@ void main()
 {
 
     s = CreateStack(5); //Limitamos el número de posiciones a 5
-    
+    printf("Valor de la pila colocado a %d \n", *s);
     Push(10); //Agregamos elemento
     Push(20);
     Push(30);
     Push(40);
+    printf("Tras la inserción de los 4º primeros elementos \n");
     status();
     
     Pop(); //Eliminamos elemento
     Pop();
+    printf("Tras borrar dos elementos \n");
     status(); 
     Push(50);
     Push(60);
