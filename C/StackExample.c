@@ -2,7 +2,7 @@
 Autor: Jon Ander Oribe Sánchez
 Fecha: 12/05/2019
 Asignatura: Estructura de Datos y Algoritmos, curso 18/19
-Modo: punteros
+Modo: array
 ************************************************************/
 
 #include<stdio.h>
@@ -18,6 +18,7 @@ struct stackarr
 };
 
 Stack s;
+
 void MakeEmpty(Stack s)
 {
     s->TopOfStack = -1;
@@ -33,44 +34,36 @@ Stack CreateStack(int MaxElements)
     return s;
 }
  
-void DisposeStack(Stack s)
-{
-    if(s != NULL)
-    {
-        free(s->Array);
-        free(s);
-    }
-}
  
-int isFull(Stack s)
+int full()
 {
     return s->TopOfStack == s->Capacity - 1;
 }
  
-int isEmpty(Stack s)
+int empty()
 {
     return s->TopOfStack == -1;
 }
  
 void Push(int x)
 {
-    if(isFull(s))
-        printf("Full Stack\n\n");
+    if(full())
+        printf("Pila llena\n\n");
     else
         s->Array[++s->TopOfStack] = x;
 }
  
 void Pop()
 {
-    if(isEmpty(s))
-        printf("Empty Stack\n\n");
+    if(empty())
+        printf("Pila vacia\n\n");
     else
         s->TopOfStack--;
 }
  
 int Top(Stack s)
 {
-    if(isEmpty(s))
+    if(empty())
         printf("Empty Stack\n\n");
     else
         return s->Array[s->TopOfStack];
@@ -78,20 +71,20 @@ int Top(Stack s)
  
 int TopAndPop(Stack s)
 {
-    if(isEmpty(s))
+    if(empty())
         printf("Empty Stack\n\n");
     else
         return s->Array[s->TopOfStack--];
 }
  
-void Display(Stack s)
+void status()
 {
     int i;
-    if(isEmpty(s))
+    if(empty())
         printf("Empty Stack\n\n");
     else
     {
-        printf("The Stack Elements are :: ");
+        printf("Los elementos en la pila son :: ");
         for(i=s->TopOfStack; i >= 0; i--)
             printf("%d  ",s->Array[i]);
         printf("\n\n");
@@ -102,20 +95,18 @@ void Display(Stack s)
  
 void main()
 {
-    int n, x, ch, i;
 
-    //printf("Enter the maximum number of elements in the stack :: ");
-    //scanf("%d", &n);
     s = CreateStack(5); //Limitamos el número de posiciones a 5
     
     Push(10); //Agregamos elemento
     Push(20);
     Push(30);
     Push(40);
+    status();
     
     Pop(); //Eliminamos elemento
     Pop();
-    
+    status(); 
     Push(50);
     Push(60);
     Push(70);
