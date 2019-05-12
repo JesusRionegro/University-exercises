@@ -1,10 +1,3 @@
-/************************************************************
-Autor: Jon Ander Oribe Sánchez
-Fecha: 12/05/2019
-Asignatura: Estructura de Datos y Algoritmos, curso 18/19
-Modo: array
-************************************************************/
-
 #include<stdio.h>
 #include<stdlib.h>
 struct stackarr;
@@ -65,7 +58,7 @@ void Pop()
 int Top(Stack s)
 {
     if(empty())
-        printf("Empty Stack\n\n");
+        printf("Pila vacia\n\n");
     else
         return s->Array[s->TopOfStack];
 }
@@ -73,7 +66,7 @@ int Top(Stack s)
 int TopAndPop(Stack s)
 {
     if(empty())
-        printf("Empty Stack\n\n");
+        printf("Pila vacia\n\n");
     else
         return s->Array[s->TopOfStack--];
 }
@@ -82,7 +75,7 @@ void status()
 {
     int i;
     if(empty())
-        printf("Empty Stack\n\n");
+        printf("Pila vacia\n\n");
     else
     {
         printf("Los elementos en la pila son :: ");
