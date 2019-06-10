@@ -1,3 +1,6 @@
+//Compilamos con gcc tickets.c -o tickets
+//Ejecutamos con./tickets.c
+
 #include <stdio.h>
 #include <string.h>
  
