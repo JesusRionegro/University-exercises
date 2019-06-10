@@ -1,0 +1,4 @@
+Patatas	    2	0.71
+Leche	      6	0.80
+Fresas      3	0.99
+Pan	        1	0.40
