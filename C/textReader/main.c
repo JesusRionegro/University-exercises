@@ -1,24 +1,28 @@
 #include <stdio.h>
 #include <string.h>
- 
-#define MAXCHAR 1000
-int main() {
-    FILE *fp;
-    char str[MAXCHAR];
-    char* filename = "frases.txt";
 
-	int count=0;
+int main ( void )
+{
+   int count=0;
+   static const char filename[] = "frases.txt";
+   FILE *file = fopen ( filename, "r" );
+   char str[128];
 
- 
-    fp = fopen(filename, "r");
-    if (fp == NULL){
-        printf("No se pudo abrir el archivo %s",filename);
-        return 1;
-    }
-    while (fgets(str, MAXCHAR, fp) != NULL)
-	count = strlen(str);
-        printf("%s %d\n", str, count);
-    fclose(fp);
+   if ( file != NULL )
+   {
+      char line [ 128 ]; /* or other suitable maximum line size */
+      while ( fgets ( line, sizeof line, file ) != NULL ) /* read a line */
+      {
+ 	 count = strlen(line);
+         fputs ( line, stdout ); /* write the line */
+ 	 printf("%d\n", count);
 
-    return 0;
+      }
+      fclose ( file );
+   }
+   else
+   {
+      perror ( filename ); /* why didn't the file open? */
+   }
+   return 0;
 }
