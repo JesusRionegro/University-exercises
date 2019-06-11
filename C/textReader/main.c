@@ -2,6 +2,20 @@
 #include <string.h>
 #include <stdlib.h>
 
+char * RemoveSpaces(char* source)
+{
+  char* i = source;
+  char* j = source;
+  while(*j != 0)
+  {
+    *i = *j++;
+    if(*i != ' ')
+      i++;
+  }
+  *i = 0;
+  return source;
+}
+
 int main ( void )
 {
    int count=0;
@@ -23,8 +37,10 @@ if (f == NULL)
       {
  	 count = strlen(line);
          fputs ( line, stdout ); /* write the line */
- 	 printf("%d\n", count);
-	fprintf(f, "%s\n", line);
+ 	 printf("La longitud es: %d\n", count);
+	 char respuestaTrimeada[1000];
+	 strcpy(respuestaTrimeada,RemoveSpaces(line));
+	 fprintf(f, "%s\n", respuestaTrimeada);
 
 
    	}
