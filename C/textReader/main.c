@@ -26,17 +26,17 @@ int main ( void )
 
 if (f == NULL)
 {
-    printf("Error opening file!\n");
+    printf("Error al abrir!\n");
     exit(1);
 }
 
    if ( file != NULL )
    {
-      char line [ 128 ]; /* or other suitable maximum line size */
-      while ( fgets ( line, sizeof line, file ) != NULL ) /* read a line */
+      char line [ 128 ]; 
+      while ( fgets ( line, sizeof line, file ) != NULL ) /* leemos la línea */
       {
  	 count = strlen(line);
-         fputs ( line, stdout ); /* write the line */
+         fputs ( line, stdout ); /* escribimos */
  	 printf("La longitud es: %d\n", count);
 	 char respuestaTrimeada[1000];
 	 strcpy(respuestaTrimeada,RemoveSpaces(line));
@@ -47,7 +47,7 @@ if (f == NULL)
 
    }else
    {
-      perror ( filename ); /* why didn't the file open? */
+      perror ( filename ); 
    }
 	fclose(f);
 	fclose ( file );
